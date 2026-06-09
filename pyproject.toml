@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "affective-manifold"
+version = "0.1.0"
+
+dependencies = [
+    "numpy",
+    "nltk",
+    "sentence-transformers",
+    "scikit-learn"
+]
+
+[tool.setuptools.packages.find]
+include = ["affective_manifold*"]
+exclude = ["venv*", "tests*", "examples*"]

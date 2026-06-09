@@ -1,0 +1,9 @@
+pyproject.toml
+affective_manifold/__init__.py
+affective_manifold/builder.py
+affective_manifold/projector.py
+affective_manifold.egg-info/PKG-INFO
+affective_manifold.egg-info/SOURCES.txt
+affective_manifold.egg-info/dependency_links.txt
+affective_manifold.egg-info/requires.txt
+affective_manifold.egg-info/top_level.txt

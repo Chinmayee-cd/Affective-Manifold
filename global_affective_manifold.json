@@ -1,0 +1,32 @@
+{
+  "target_vocab_size": 4000,
+  "min_affective_gap": 0.08,
+  "min_salience": 0.12,
+  "model_name": "Transformer",
+  "anchors": {
+    "positive": [
+      "good",
+      "pleasant",
+      "joy",
+      "love",
+      "calm",
+      "beautiful"
+    ],
+    "negative": [
+      "bad",
+      "pain",
+      "fear",
+      "hate",
+      "ugly",
+      "anger"
+    ],
+    "neutral": [
+      "object",
+      "thing",
+      "entity",
+      "item",
+      "concept",
+      "fact"
+    ]
+  }
+}
