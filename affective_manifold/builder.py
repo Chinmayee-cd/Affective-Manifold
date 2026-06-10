@@ -98,7 +98,7 @@ class AffectiveManifoldBuilder:
         neu_mean = neu_score.mean(axis=1)
 
         valence = pos_mean - neg_mean
-        arousal = np.maximum(pos_mean, neg_mean)
+        arousal = np.maximum(pos_mean, neg_mean) - neu_mean
         salience = np.abs(valence) + arousal
 
         keep = (np.abs(valence) >= self.min_affective_gap) & (salience >= self.min_salience)

@@ -3,7 +3,20 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.corpus import wordnet as wn
 
+import nltk
 
+def ensure_nltk():
+    try:
+        nltk.data.find("corpora/wordnet")
+    except LookupError:
+        nltk.download("wordnet", quiet=True)
+
+    try:
+        nltk.data.find("corpora/omw-1.4")
+    except LookupError:
+        nltk.download("omw-1.4", quiet=True)
+
+ensure_nltk()
 class AffectiveProjector:
 
     def __init__(
