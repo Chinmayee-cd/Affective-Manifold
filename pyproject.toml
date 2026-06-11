@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "affective-manifold"
-version = "0.1.0"
+version = "0.1.1"
 
 dependencies = [
     "numpy",
@@ -16,3 +16,6 @@ dependencies = [
 [tool.setuptools.packages.find]
 include = ["affective_manifold*"]
 exclude = ["venv*", "tests*", "examples*"]
+
+[tool.setuptools.package-data]
+affective_manifold = ["*.npz"]

@@ -2,8 +2,14 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk.corpus import wordnet as wn
-
+from importlib.resources import files
 import nltk
+
+DEFAULT_MANIFOLD = files(
+    "affective_manifold"
+).joinpath(
+    "global_affective_manifold.npz"
+)
 
 def ensure_nltk():
     try:
@@ -16,16 +22,19 @@ def ensure_nltk():
     except LookupError:
         nltk.download("omw-1.4", quiet=True)
 
-ensure_nltk()
+
 class AffectiveProjector:
 
     def __init__(
         self,
-        manifold_path="global_affective_manifold.npz",
+        manifold_path=None,
         model_name="all-MiniLM-L6-v2"
     ):
 
         self.model = SentenceTransformer(model_name)
+
+        if manifold_path is None:
+            manifold_path = DEFAULT_MANIFOLD
 
         data = np.load(
             manifold_path,
@@ -98,6 +107,7 @@ class AffectiveProjector:
         word,
         definition=None
     ):
+        ensure_nltk()
 
         if definition is None:
 
